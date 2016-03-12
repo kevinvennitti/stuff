@@ -1,0 +1,145 @@
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden],template{display:none}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:0 0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+
+body {
+  background:#65fcd9;
+  overflow:hidden
+}
+
+.Window {
+  position: absolute;
+  width: 70%;
+  height: 500px;
+  margin: -250px 0 0 -35%;
+  top: 70%;
+  left: 50%;
+  border-radius: 3px;
+  border: solid 1px rgb(159, 179, 174);
+  box-shadow: 0 10px 100px rgb(71, 165, 143);
+}
+
+.Window__TopBar {
+  height:36px;
+  background:url(img/TopBarBackground.png) repeat-x;
+  overflow:hidden;
+}
+
+.Window__TopBar__CloseWindow {
+  height:36px;
+  width:73px;
+  background:url(img/CloseWindow.png) no-repeat;
+  float:left;
+}
+
+.Window__Tabs {
+  padding-top:11px;
+  margin: 0 20px 0 83px;
+  display:flex;
+}
+
+.Window__Nav {
+  height:36px;
+  border-top:solid 1px gray;
+  margin-top:-1px;
+  z-index:2;
+  position:relative;
+}
+
+.Window__Nav__Left {
+  height:36px;
+  width:115px;
+  background:url(img/Nav.png) no-repeat;
+  float:left;
+}
+
+.Window__Nav__Bar {
+  height:36px;
+  background:url(img/NavBackground.png) repeat-x;
+  padding: 10px 120px;
+  font-size: 15px;
+  white-space:nowrap
+}
+
+.Window__Nav__Bar u {
+  cursor:pointer;
+}
+
+.Window__Nav__Right {
+  height:36px;
+  width:57px;
+  background:url(img/NavEnd.png) no-repeat;
+  float:right
+}
+
+.Window__Content {
+  position:absolute;
+  background:white;
+  left:0;
+  right:0;
+  bottom:0;
+  top:72px;
+}
+
+.Tab {
+  height: 24px;
+  flex:1 100px;
+  max-width:170px;
+  min-width:50px;
+  display: inline-block;
+  position: relative;
+  margin-left: -16px !important;
+  overflow: hidden;
+  flex:1
+}
+
+.Tab__Start {
+  width:14px;
+  height:25px;
+  background:url(img/TabLeft.png) no-repeat;
+  float:left;
+}
+
+.Tab__End {
+  width:14px;
+  height:25px;
+  background:url(img/TabRight.png) no-repeat;
+  float:right
+}
+
+.Tab__Favicon {
+  width:16px;
+  height:16px;
+  background:no-repeat center center / 100%;
+  float:left;
+  margin-top:5px;
+  margin-left:2px;
+  cursor:pointer;
+  -webkit-transition:all 300ms ease;
+}
+
+.Tab__Favicon.song {
+  background:url(favicon/son.png) no-repeat center center / 100% !important;
+}
+
+
+.Tab__Croix {
+  width:14px;
+  height:14px;
+  background:url(img/Croix.png) no-repeat center center;
+  float:right;
+  margin-top:6px;
+  cursor:pointer;
+  -webkit-transition:all 300ms ease;
+  position:relative;
+  z-index:10;
+}
+
+.Tab__Croix:hover {
+  background:url(img/CroixHover.png) no-repeat center center;
+  -webkit-transition:all 300ms ease;
+}
+
+.Tab__Content {  
+  background:url(img/TabBackground.png) repeat-x;
+  height:25px;
+  margin: 0 14px;
+}

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+    <title>Kill dat tabs</title>
+    
+    <link rel="stylesheet" href="css.css" />
+    
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    
+    <script>
+      
+      var WAITING = 0,
+          PREPLAYING = 1,
+          PLAYING = 2,
+          SCORING = 3;
+          
+      var state = WAITING;
+      
+      var passedTime = 0;
+      
+      var score = 0;
+      var dureeGame = 45000;
+      
+      function initGame() {
+        score = 0;
+        
+        state = PREPLAYING;
+        
+        $('.Nav__Span1').text('Fermez tous les onglets qui diffusent du son contre votre gré !');
+        $('.Nav__Span1b').text('');
+        
+        $('.Nav__Span2').html('<u>Prêt(e) à jouer…?</u>');
+        $('.Nav__Span2b').text('');
+      }
+      
+      function startGame() {
+        console.log('start game');
+        state = PLAYING;
+        
+        $('.Window__Tabs').empty();
+        
+        for (var i = 1; i <= 6; i++) {
+          setTimeout(function(){
+            var tab = new Tab();
+          },15*i);
+        }
+        
+        $('.Nav__Span1').text('Score : ');
+        $('.Nav__Span1b').text(score);
+        
+        passedTime = 0;
+        
+        refreshTimer();
+        
+        setTimeout(function(){
+          endGame();
+        }, dureeGame);
+      }
+      
+      function endGame() {
+        state = SCORING;
+        
+        console.log('end game');
+        
+        for (var i = 1; i <= 6; i++) {
+          killTab(i);
+        }
+        
+        var s = (score > 1) ? 's' : '';
+        
+        $('.Nav__Span1').text('Votre score final est de '+score+' point'+s+' !');
+        $('.Nav__Span1b').text('');
+        
+        $('.Nav__Span2').html('<u>Souhaitez-vous réessayer ?</u>');
+        $('.Nav__Span2b').text('');
+        
+      }
+      
+      function killTab(i) {
+        setTimeout(function(){          
+          $('.Tab:nth-child('+parseInt(i)+')').animate({'margin-top':'24px'},200,function(){ $(this).remove(); });
+        
+        },15*i);
+      }
+      
+      var tabs = new Array();
+      
+      function Tab() {
+        this.id = Math.floor(Date.now());
+        this.timer = parseInt(Math.random() * 8000)+1000;
+        this.DOM = '#tab_'+this.id;
+        
+        tabs.push(this);
+        
+        newTab(this.id);
+        
+        var DOM = this.DOM;
+        
+        setTimeout(function(){
+          setSongToTab(DOM);
+        },this.timer);
+      }
+      
+      function is(stateTemp) {
+        return state == stateTemp;
+      }
+      
+      
+      function newTab(id) {          
+        $('<div class="Tab" id="tab_'+id+'"><div class="Tab__Start"></div><div class="Tab__End"></div><div class="Tab__Favicon" style="background-image:url(favicon/'+parseInt(Math.random()*8+1)+'.png)"></div><div class="Tab__Croix"></div><div class="Tab__Content"></div><audio loop><source src="sons/'+parseInt(Math.random()*5+1)+'.mp3" type="audio/mpeg"></audio></div>').appendTo($('.Window__Tabs')).css('margin-top','26px').animate({'margin-top':0}, 150);  
+        
+        $('#tab_'+id+' .Tab__Croix').on('click',function(){
+          if (is(PLAYING)) {
+            if ($('#tab_'+id+' .Tab__Favicon').hasClass('song')) {
+              $('#tab_'+id).css({'min-width':0,'flex':'0 16px'}).animate({'flex':'1 50px', 'margin-top':'16px'},150,function(){$(this).remove();});
+              score++;
+            } else {
+              $('#tab_'+id).css({'min-width':0,'flex':'0 16px'}).animate({'flex':'1 50px', 'margin-top':'16px'},150,function(){$(this).remove();});
+              score--;
+            }
+            
+            $('.Nav__Span1b').text(score);
+            
+            var tab = new Tab();
+          }
+        });
+      }
+      
+      function setSongToTab(id) {
+        $(id+' .Tab__Favicon').addClass('song');
+        $(id+' audio').get(0).play();
+      }
+      
+      setInterval(function(){
+        refreshTimer();
+      },1000);
+      
+      function refreshTimer() {
+        if (is(PLAYING) || is(PREPLAYING)) {
+          passedTime += 1000;
+          
+          var temps = '';
+          
+          for (var i = 1000; i <= dureeGame-passedTime; i+=1000 ) {
+            temps += '|';
+          }
+          
+          if (is(PLAYING)) {
+            $('.Nav__Span2').text('Temps restant : ');
+            $('.Nav__Span2b').text(temps);
+          }
+          
+        }
+      }
+      
+      $(function(){
+        initGame();
+        
+        $('.Nav__Span2').on('mousedown',function(){
+          if (is(SCORING)) {
+            initGame();
+            return;
+          }
+          if (is(PREPLAYING)) {
+            startGame();
+            return;
+          }
+        });
+      });
+      
+    </script>
+</head>
+<body>
+  <div class="Window">
+    <div class="Window__TopBar">
+      <div class="Window__TopBar__CloseWindow"></div>
+      <div class="Window__Tabs">      
+      </div>
+    </div>
+    
+    <div class="Window__Nav">
+      <div class="Window__Nav__Left"></div>
+      <div class="Window__Nav__Right"></div>
+      <div class="Window__Nav__Bar">
+        [&nbsp;
+        <span class="Nav__Span1">Score : </span>
+        <span class="Nav__Span1b"></span>&nbsp;&nbsp;]
+        [&nbsp;
+        <span class="Nav__Span2">Temps restant : </span>
+        <span class="Nav__Span2b"></span>&nbsp;&nbsp;]
+        </div>
+    </div>
+    
+    <div class="Window__Content">
+      
+    </div>
+    
+  </div>
+</body>
+</html>
