@@ -14,12 +14,16 @@ But du jeu : fermer les onglets qui diffusent du son contre votre gré ; faites 
 
 #### [004_CrazyKeyboard](004_CrazyKeyboard/)
 But du jeu : lancer des lettres en touchant les touches.
-*Script Processing inspiré de ce GIf :*
+*Script Processing inspiré de ce GIF :*
 ![CrazyFunKeyboard](004_CrazyKeyboard/crazyFunKeyboard.gif)
 
 #### [005_GlitchDisparition](005_GlitchDisparition/)
 Atténuation et disparition de la présence de l'user dans son environnement.
-*Script Processing créé dans le cadre d'un projet d'expression plastique (Double Je)*
+*Script Processing créé dans le cadre d'un projet d'expression plastique (Double Je).*
 
 #### [006_ParticlesAttraction](006_ParticlesAttraction/)
 Attraction des particules par la souris (au clic ou au hover).
+
+#### [007_BlurAmbiant](007_BlurAmbiant/)
+Représentation abstraite d'une ambiance solaire floue + bruit blanc.
+*Script Processing créé pour un projet d'expression plastique.*
