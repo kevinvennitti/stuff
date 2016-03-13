@@ -18,5 +18,8 @@ But du jeu : lancer des lettres en touchant les touches.
 ![CrazyFunKeyboard](004_CrazyKeyboard/crazyFunKeyboard.gif)
 
 #### [005_GlitchDisparition](005_GlitchDisparition/)
-Atténuation et disparition de la présence de l'user dans son environnement 
+Atténuation et disparition de la présence de l'user dans son environnement.
 *Script Processing créé dans le cadre d'un projet d'expression plastique (Double Je)*
+
+#### [006_ParticlesAttraction](006_ParticlesAttraction/)
+Attraction des particules par la souris (au clic ou au hover).
