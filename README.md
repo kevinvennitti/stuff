@@ -17,6 +17,6 @@ But du jeu : lancer des lettres en touchant les touches.
 *Script Processing inspiré de ce GIf :*
 ![CrazyFunKeyboard](004_CrazyKeyboard/crazyFunKeyboard.gif)
 
-## 005_GlitchDisparition
+#### [005_GlitchDisparition](005_GlitchDisparition/)
 Atténuation et disparition de la présence de l'user dans son environnement 
 *Script Processing créé dans le cadre d'un projet d'expression plastique (Double Je)*
