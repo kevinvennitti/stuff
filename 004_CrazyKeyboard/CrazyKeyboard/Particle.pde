@@ -71,7 +71,7 @@ class Particle {
     // We look at each body and get its screen position
     Vec2 pos = box2d.getBodyPixelCoord(body);
 
-    opacity-=1;
+    opacity-=2;
 
     // Get its angle of rotation
     float a = body.getAngle();

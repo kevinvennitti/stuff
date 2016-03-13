@@ -58,17 +58,17 @@ void draw() {
 }
 
 void addLetter(char letter) {
-  particles.add(new Particle(mapLettersString.indexOf(letter), random(0, 20)+160, 5, color(255, 255, 255), key));
+  particles.add(new Particle(mapLettersString.indexOf(letter), random(0, 20)+160, 5, color(255, 255, 255), letter));
 }
 
 void addLetterGlob(char letter) {
-  particles.add(new Particle(mapLettersString.indexOf(letter), random(0, 20)+160, 5, color(255, 255, 255), key));
+  particles.add(new Particle(mapLettersString.indexOf(letter), random(0, 20)+160, 5, color(255, 255, 255), letter));
 }
 
 void keyPressed() {
   if (key == ' ') {
     for (int i = 0; i < mapLettersString.length(); i++) {
-      addLetterGlob(mapLettersString.charAt(i));
+      addLetter(mapLettersString.charAt(i));
     }
   } else {
     addLetter(key);
