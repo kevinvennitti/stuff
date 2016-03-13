@@ -1,4 +1,4 @@
-Expérimentations, boîte à outils, codes et choses en tout genre
+**Expérimentations, boîte à outils et codes garantis sans garantie**
 
 #### [001_ScrollGame_Processing](001_ScrollGame_Processing/)
 But du jeu : scroller jusqu'en bas de la fenêtre, sachant que le sens du scroll s'inverse aléatoirement dans le temps imparti…
@@ -27,3 +27,6 @@ Attraction des particules par la souris (au clic ou au hover).
 #### [007_BlurAmbiant](007_BlurAmbiant/)
 Représentation abstraite d'une ambiance solaire floue + bruit blanc.
 *Script Processing créé pour un projet d'expression plastique.*
+
+#### [008_SinualWave](008_SinualWave/)
+Visualiseur de fréquence audio.
