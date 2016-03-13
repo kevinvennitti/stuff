@@ -1,7 +1,7 @@
 ## 004_CrazyKeyboard
 But du jeu : lancer des lettres en touchant les touches.
 *Script Processing inspiré de ce GIf :*
-![CrazyFunKeyboard](images/CrazyFunKeyboard.gif)
+![CrazyFunKeyboard](../crazyFunKeyboard.gif)
  
 ### Consignes
 Lancer `CrazyKeyboard.pde` avec Processing

@@ -13,5 +13,10 @@ But du jeu : fermer les onglets qui diffusent du son contre votre gré ; faites 
 *Script Processing créé pour un projet de collecte de données via un jeu.*
 
 #### [004_CrazyKeyboard](004_CrazyKeyboard/)
-9 modes de visualisation 2D et 3D d'un fichier de data.
-*Script Processing créé pour un projet de collecte de données via un jeu.*
+But du jeu : lancer des lettres en touchant les touches.
+*Script Processing inspiré de ce GIf :*
+![CrazyFunKeyboard](004_CrazyKeyboard/crazyFunKeyboard.gif)
+
+## 005_GlitchDisparition
+Atténuation et disparition de la présence de l'user dans son environnement 
+*Script Processing créé dans le cadre d'un projet d'expression plastique (Double Je)*
